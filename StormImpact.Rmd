@@ -1,0 +1,27 @@
+---
+title: "Health and Economic Impact of Storm Events"
+author: "Amasa Amos"
+date: "October 24, 2014"
+output:
+  html_document:
+    keep_md: yes
+---
+
+### Synopsis
+
+(Synopsis goes here. No more than 10 sentences.)
+
+### Data Processing
+```{r}
+library(data.table)
+file <- tempfile()
+download.file('http://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2', file)
+# This dataset is huge, so let's just read in the columns we'll actually be using.
+colClasses <- c('NULL','NULL','NULL','NULL','NULL','NULL','NULL','factor','NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL','numeric','numeric','numeric','factor','numeric','factor','NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL','NULL')
+StormData <- data.table(read.csv(bzfile(file), colClasses = colClasses))
+unlink(file)
+```
+
+### Results
+
+(At least one, but no more than three, figures containing a plot.)
